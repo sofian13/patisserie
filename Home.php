@@ -21,17 +21,28 @@
 
   <!-- Liste de recettes -->
   <ul>
-    <?php
-    // Connexion à la base de données et récupération des recettes
-    $db = new PDO('mysql:host=localhost;dbname=thesavorist', '295285', '*OnadesnotesIncr13*');
-    $stmt = $db->prepare('SELECT id, nom FROM recettes');
-    $stmt->execute();
-    $recipes = $stmt->fetchAll();
+  <?php
+// Connexion à la base de données
+$host = 'mysql-thesavorist.alwaysdata.net  ';
+$dbname = 'thesavorist';
+$username = '295285';
+$password = '*OnadesnotesIncr13*';
 
-    // Affichage des recettes
-    foreach ($recipes as $recipe) {
-      echo '<li><a href="recipe.php?id=' . $recipe['id'] . '">' . $recipe['nom'] . '</a></li>';
-    }
+try {
+  $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+  // Récupération des recettes
+  $stmt = $db->prepare('SELECT id, nom FROM recettes');
+  $stmt->execute();
+  $recipes = $stmt->fetchAll();
+
+  // Affichage des recettes
+  foreach ($recipes as $recipe) {
+    echo '<li><a href="recipe.php?id=' . $recipe['id'] . '">' . $recipe['nom'] . '</a></li>';
+  }
+} catch (PDOException $e) {
+  echo 'Erreur de connexion : ' . $e->getMessage();
+}
+
     ?>
   </ul>
 </body>
