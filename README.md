@@ -1,1 +1,1 @@
-# patisserie
+# pâtisserie
