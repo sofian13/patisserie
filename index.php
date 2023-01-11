@@ -22,11 +22,11 @@
   <!-- Liste de recettes -->
   <ul>
   <?php
-// Connexion à la base de données
-$host = 'mysql-thesavorist.alwaysdata.net  ';
-$dbname = 'thesavorist';
-$username = '295285';
-$password = '*OnadesnotesIncr13*';
+  // Connexion à la base de données
+  $host = 'mysql-thesavorist.alwaysdata.net';
+  $dbname = 'thesavorist';
+  $username = '295285';
+  $password = '*OnadesnotesIncr13*';
 
 try {
   $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
