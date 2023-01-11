@@ -1,24 +1,12 @@
-let tabs = document.querySelectorAll(".tab-link:not(.desactive)");
-
-tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-        unSelectAll();
-        tab.classList.add("active");
-        let ref = tab.getAttribute("data-ref");
-        document
-            .querySelector(`.tab-body[data-id="${ref}"]`)
-            .classList.add("active");
-    });
-});
-
-function unSelectAll() {
-    tabs.forEach((tab) => {
-        tab.classList.remove("active");
-    });
-    let tabbodies = document.querySelectorAll(".tab-body");
-    tabbodies.forEach((tab) => {
-        tab.classList.remove("active");
-    });
+function openLoginPage() {
+    document.querySelector(".reg").classList.remove("show-page");
+    document.querySelector(".login").classList.add("show-page");
+    document.getElementById("login-action").classList.add("show");
+    document.getElementById("reg-action").classList.remove("show");
 }
-
-document.querySelector(".tab-link.active").click();
+function openRegPage() {
+    document.querySelector(".reg").classList.add("show-page");
+    document.querySelector(".login").classList.remove("show-page");
+    document.getElementById("reg-action").classList.add("show");
+    document.getElementById("login-action").classList.remove("show");
+  }

@@ -1,59 +1,37 @@
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js">
-    </script>
-    <script src="script.js" defer></script>
-    <title>Mon site - Connexion</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="logo">
-            <i class="fas fa-user"></i>
-        </div>
-
-        <div class="tab-body" data-id="connexion">
-            <form>
-                <div class="row">
-                    <i class="far fa-user"></i>
-                    <input type="email" class="input" placeholder="Adresse Mail">
-                </div>
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input placeholder="Mot de Passe" type="password" class="input">
-                </div>
-                <a href="#" class="link">Mot de passe oublié ?</a>
-                <button class="btn" type="button">Connexion</button>
-            </form>
-        </div>
-
-        <div class="tab-body" data-id="inscription">
-            <form>
-                <div class="row">
-                    <i class="far fa-user"></i>
-                    <input type="email" class="input" placeholder="Adresse Mail">
-                </div>
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" class="input" placeholder="Mot de Passe">
-                </div>
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" class="input" placeholder="Confirmer Mot de Passe">
-                </div>
-                <button class="btn" type="button">Inscription</button>
-            </form>
-        </div>
-
-        <div class="tab-footer">
-            <a class="tab-link active" data-ref="connexion" href="javascript:void(0)">Connexion</a>
-            <a class="tab-link" data-ref="inscription" href="javascript:void(0)">Inscription</a>
-        </div>
-    </div>
-</body>
-
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Page de connexion et d'inscription</title>
+  </head>
+  <body>
+    <form action="" class="form">
+      <div class="action">
+        <span class="load show" id="login-action" onclick="openLoginPage()"
+          >Connexion</span
+        >
+        <span class="load" onclick="openRegPage()" id="reg-action"
+          >Inscription</span
+        >
+      </div>
+      <div class="login show-page">
+        <input type="text" placeholder="Pseudo" />
+        <input type="password" placeholder="Mot de passe" />
+        <button>Connexion</button>
+        <a href="#" onclick="openRegPage()">Inscription</a>
+      </div>
+      <div class="reg">
+        <input type="text" placeholder="Pseudo" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Mot de passe" />
+        <button>Inscription</button>
+        <a href="#" onclick="openLoginPage()">Connexion</a>
+      </div>
+    </form>
+  </body>
+  <script src="script.js"  ></script>  
 </html>
+
