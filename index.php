@@ -24,7 +24,7 @@
   <?php
   // Connexion à la base de données
   $host = 'mysql-thesavorist.alwaysdata.net';
-  $dbname = 'thesavorist';
+  $dbname = 'thesavorist_site';
   $username = '295285';
   $password = '*OnadesnotesIncr13*';
 
