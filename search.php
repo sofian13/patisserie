@@ -7,6 +7,12 @@
 <body>
     <h1>Recherche</h1>
     <?php
+        // Connexion à la base de données
+        $host = 'mysql-thesavorist.alwaysdata.net  ';
+        $dbname = 'thesavorist';
+        $username = '295285';
+        $password = '*OnadesnotesIncr13*';
+
         $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
         // Récupération des recettes
         $query = $_GET['query'];
