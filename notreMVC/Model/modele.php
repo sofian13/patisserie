@@ -2,7 +2,7 @@
 class Model{
   // Connexion à la base de données
   private $host = 'mysql-thesavorist.alwaysdata.net';
-  private $dbname = 'thesavorist';
+  private $dbname = 'thesavorist_site';
   private $username = '295285';
   private $password = '*OnadesnotesIncr13*';
 
