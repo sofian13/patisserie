@@ -18,10 +18,10 @@
   $stmt = $db->prepare('SELECT * FROM recettes WHERE id = :id');
   $stmt->execute(array(':id' => $_GET['id']));
   $recipe = $stmt->fetch();
-
+/*
   // Affichage des détails de la recette
-  echo '<h1>' . $recipe['name'] . '</h1>';
-  echo '<img src="' . $recipe['image'] . '" alt="' . $recipe['name'] . '">';
+  echo '<h1>' . $recipe['nom'] . '</h1>';
+  echo '<img src="' . $recipe['image'] . '" alt="' . $recipe['nom'] . '">';
   echo '<p>Temps de préparation: ' . $recipe['prep_time'] . '</p>';
   echo '<p>Difficulté: ' . $recipe['difficulty'] . '</p>';
   echo '<p>Coût: ' . $recipe['cost'] . '</p>';
@@ -40,7 +40,8 @@
   }
   echo '</ul>';
   echo '<h2>Préparation</h2>';
-  echo '<p>' . $recipe['description'] . '</p>';
+  echo '<p>' . $recipe['description'] . '</p>'; 
+  */
   ?>
 </body>
 </html>
