@@ -5,8 +5,9 @@
 }
 
 body {
-    font-family: sans-serif;
     display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -19,6 +20,7 @@ body {
     background: rgba(0, 0, 0, 0.7);
     padding: 20px 15px;
     min-height: 250px;
+    margin-top: 150px;
 }
 
 input {
@@ -110,12 +112,11 @@ input:focus {
 }
 
 footer {
-    margin-top: 40px;
     border-top: 5px solid #ffffff;
     background-color: rgba(0, 0, 0, 0.568);
     color: rgb(143, 143, 143);
-    padding: 30px 100px;
-    ;
+    padding: 30px 500px;
+    margin-top: auto;
 }
 
 footer h1 {
@@ -138,14 +139,14 @@ footer .services {
 }
 
 footer .services .service {
-    margin-right: 30px;
+    margin-right: 500px;
 }
 
 footer .services .service p {
     max-width: 300px;
 }
 
-ª footer #contact {
+footer #contact {
     color: rgb(181, 181, 181);
 }
 
