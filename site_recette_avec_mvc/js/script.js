@@ -12,37 +12,16 @@ function openRegPage() {
     document.getElementById("login-action").classList.remove("show");
 }
 
-$(document).ready(function() {
-    var zindex = 10;
+let input = document.getElementById('avatar');
+let preview = document.getElementById('avatar-preview');
 
-    $("div.card").click(function(e) {
-        e.preventDefault();
+input.addEventListener('change', updateImageDisplay);
 
-        var isShowing = false;
-
-        if ($(this).hasClass("show")) {
-            isShowing = true;
-        }
-
-        if ($("div.cards").hasClass("showing")) {
-            // a card is already in view
-            $("div.card.show").removeClass("show");
-
-            if (isShowing) {
-                // this card was showing - reset the grid
-                $("div.cards").removeClass("showing");
-            } else {
-                // this card isn't showing - get in with it
-                $(this).css({ zIndex: zindex }).addClass("show");
-            }
-
-            zindex++;
-        } else {
-            // no cards in view
-            $("div.cards").addClass("showing");
-            $(this).css({ zIndex: zindex }).addClass("show");
-
-            zindex++;
-        }
-    });
-});
+function updateImageDisplay() {
+    let curFiles = input.files;
+    if (curFiles.length === 0) {
+        preview.src = 'path/to/default-avatar.png';
+    } else {
+        preview.src = window.URL.createObjectURL(curFiles[0]);
+    }
+}
