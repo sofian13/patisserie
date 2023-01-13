@@ -5,7 +5,7 @@ final class ControleurDefaut
     public function defautAction()
     {
         $O_helloworld =  new Helloworld();
-        Vue::montrer('helloworld/voir', array('helloworld' =>  $O_helloworld->donneMessage()));
+        Vue::montrer('helloworld/acceuil', array('helloworld' =>  $O_helloworld->donneMessage()));
 
     }
 

@@ -11,3 +11,4 @@
         <p id="contact">Contact : 07 71 15 37 09 | &copy; 2021, New York.</p>
 </footer>
 <script src="/js/script.js"></script>
+<script src="/js/script2.js"></script>
