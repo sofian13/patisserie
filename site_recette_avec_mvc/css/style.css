@@ -45,7 +45,7 @@ input:focus {
     background: royalblue;
     border: none;
     width: 200px;
-    margin-left: 65px;
+    margin-left: 40px;
     transition: 0.2s;
     cursor: pointer;
 }
@@ -148,6 +148,25 @@ footer .services .service p {
 
 footer #contact {
     color: rgb(181, 181, 181);
+}
+
+.form .avatar-input label {
+    display: block;
+    margin: 30px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+.form .avatar-input input[type='file'] {
+    display: none;
+}
+
+img {
+    display: flex;
+    max-width: 80px;
+    margin-left: 100px;
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 480px) {
