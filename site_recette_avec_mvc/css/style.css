@@ -162,11 +162,10 @@ footer #contact {
     display: none;
 }
 
-img {
-    display: flex;
+#avatar-preview {
+    border-radius: 50%;
     max-width: 80px;
     margin-left: 100px;
-    border-radius: 50%;
 }
 
 @media screen and (max-width: 480px) {

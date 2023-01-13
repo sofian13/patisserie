@@ -22,8 +22,8 @@
       <div class="reg">
         <div class="avatar-input">
           <input type="file" name="avatar" id="avatar" accept="image/*">
-          <label for="avatar">Choose an avatar</label>
-          <img src="https://media.discordapp.net/attachments/885515822817234954/1063397423428403230/pngegg.png?width=581&height=581" id="avatar-preview" alt="avatar">
+          <label for="avatar">Choose an avatar</label>       
+          <img src="https://media.discordapp.net/attachments/885515822817234954/1063397423428403230/pngegg.png?width=581&height=581" id="avatar-preview" alt="avatar" class="circle">
           <input type="text" placeholder="Pseudo" />
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Mot de passe" />
