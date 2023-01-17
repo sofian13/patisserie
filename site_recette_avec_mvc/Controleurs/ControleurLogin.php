@@ -6,14 +6,14 @@ final class ControleurLogin
     {
         $O_login =  new Login();
         Vue::montrer('login/voir', array('Login' =>  $O_login->donneMessage()));
-
     }
 
-    public function testformAction(Array $A_parametres = null, Array $A_postParams = null)
-    {
+    public function connexionAction() {
+        $pseudo = $_POST['pseudo'];
+        $mdp = $_POST['mdp'];
 
-        Vue::montrer('login/testform', array('formData' =>  $A_postParams));
+        $O_connexion = new Login();
 
+        $O_connexion->connexion($pseudo,$mdp);
     }
-
 }

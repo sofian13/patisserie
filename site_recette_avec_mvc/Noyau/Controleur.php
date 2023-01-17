@@ -11,12 +11,12 @@ final class Controleur
     public function __construct ($S_url, $A_postParams)
     {
         // On élimine l'éventuel slash en fin d'URL sinon notre explode renverra une dernière entrée vide
-        if ('/' == substr($S_url, -1, 1)) {
+        if ('/' == substr($S_url ?? '', -1, 1)) {
             $S_url = substr($S_url, 0, strlen($S_url) - 1);
         }
 
         // On éclate l'URL, elle va prendre place dans un tableau
-        $A_urlDecortique = explode('/', $S_url);
+        $A_urlDecortique = explode('/', $S_url ?? '');
 
         if (empty($A_urlDecortique[0])) {
             // Nous avons pris le parti de préfixer tous les controleurs par "Controleur"
