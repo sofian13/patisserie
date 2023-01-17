@@ -89,13 +89,7 @@ input:focus {
     color: royalblue;
 }
 
-.login {
-    display: none;
-}
 
-.reg {
-    display: none;
-}
 
 .show-page {
     display: block;
