@@ -4,8 +4,8 @@ final class ControleurRecherche
 {
     public function defautAction()
     {
-        $O_defaut =  new Defaut();
-        Vue::montrer('recherche/voir', array('Recherche' =>  $O_defaut->donneMessage()));
+        $O_recherche =  new Recherche();
+        Vue::montrer('recherche/voir', array('Recherche' =>  $O_recherche->donneMessage()));
 
     }
 
