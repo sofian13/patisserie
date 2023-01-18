@@ -19,11 +19,11 @@ final class Recherche
     //Fonction de recherche des recettes
     public function searchRecipes($query) {
         $query = filter_input(INPUT_GET, 'query', FILTER_SANITIZE_STRING);
-        $stmt = $this->db->prepare("SELECT id, nom FROM recettes WHERE nom LIKE :query");
-        if($stmt->execute(['query' => "%$query%"])){
-            return $stmt->fetchAll();
-        }else{
-            return false;
+        $stmt = $this->db->prepare("SELECT * FROM recettes WHERE nom LIKE :query");
+        if ($stmt->execute(['query' => "%$query%"]) === false) {
+            throw new Exception("Error Processing Request", 1);
+            
         }
+            return $stmt->fetchAll();
     }
 }
