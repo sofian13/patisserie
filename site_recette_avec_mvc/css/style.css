@@ -156,6 +156,10 @@ footer #contact {
     display: none;
 }
 
+#url{
+display: none;
+}
+
 #avatar-preview {
     border-radius: 50%;
     max-width: 80px;
