@@ -2,7 +2,7 @@
 
 final class Recette {
 
-    public function ajoute_recette($nom,$ingredient,$instruction, $liste_ingredient,$liste_ustensile,$temps,$cout) {
+    public function ajoute_recette($nom,$ingredient,$instruction,$image, $liste_ingredient,$liste_ustensile,$temps,$difficulte,$cout) {
         /*
          * $host = 'mysql-thesavorist.alwaysdata.net';
          * $dbname = 'thesavorist_site';
@@ -12,8 +12,8 @@ final class Recette {
 
         $bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
 
-        $req = $bdd->prepare('INSERT INTO recettes(nom, ingredients, instructions, liste_ingredients, liste_ustensiles, temps_preparation, cout) VALUES(?, ?, ?, ?, ?, ?, ?)');
-        $req->execute(array($nom,$ingredient,$instruction, $liste_ingredient,$liste_ustensile,$temps,$cout));
+        $req = $bdd->prepare('INSERT INTO recettes(nom, ingredients, instructions,image, liste_ingredients, liste_ustensiles, temps_preparation, difficulte, cout) VALUES(?,?,?, ?, ?, ?, ?, ?, ?)');
+        $req->execute(array($nom,$ingredient,$instruction,$image, $liste_ingredient,$liste_ustensile,$temps,$difficulte,$cout));
     }
 
     private $_S_message = "Recette";
