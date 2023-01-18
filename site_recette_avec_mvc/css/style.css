@@ -189,3 +189,32 @@ display: none;
 .btnConnexion:focus {
     border-color: #333333;
 }
+
+/* Style du formulaire de recherche */
+.formRecherche form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+.formRecherche form input[type="text"] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  }
+.formRecherche form input[type="submit"] {
+    width: 40%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+.formRecherche form input[type="submit"]:hover {
+    background-color: #45a049;
+  }
