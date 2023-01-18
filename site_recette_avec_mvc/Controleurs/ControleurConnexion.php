@@ -1,19 +1,20 @@
 <?php
 
-final class ControleurLogin
+final class ControleurConnexion
 {
     public function defautAction()
     {
-        $O_login =  new Login();
-        Vue::montrer('login/voir', array('Login' =>  $O_login->donneMessage()));
+        $O_login =  new Connexion();
+        Vue::montrer('Connexion/voir');
     }
 
     public function connexionAction() {
         $pseudo = $_POST['pseudo'];
         $mdp = $_POST['mdp'];
 
-        $O_connexion = new Login();
+        $O_connexion = new Connexion();
 
         $O_connexion->connexion($pseudo,$mdp);
+
     }
 }

@@ -1,5 +1,4 @@
-<html id="pageInscription">
-  <body>
+<div id="pageInscription">
   <form method="post" class="form" action="index.php?url=inscription/ajoute_utilisateur">
       <div class="action">
         <span class="load" id="login-action" onclick="openLoginPage()">
@@ -12,7 +11,7 @@
       <div class="reg">
           <div class="avatar-input">
               <input type="file" name="avatar" id="avatar" accept="image/*">
-              <label for="avatar">Choose an avatar</label>
+              <label for="avatar">Choisissez un avatar</label>
               <img src="https://media.discordapp.net/attachments/885515822817234954/1063397423428403230/pngegg.png?width=581&height=581" id="avatar-preview" alt="avatar">
               <input type="text" placeholder="Pseudo" name="pseudo"/>
               <input type="email" placeholder="Email" name="email"/>
@@ -23,7 +22,6 @@
           </div>
       </div>
   </form>
-  </body>
-</html>
+</div>
 
 

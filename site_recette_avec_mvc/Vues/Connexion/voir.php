@@ -1,6 +1,5 @@
-<html id="pageConnexion">
-  <body>
-    <form action="" class="form" action="index.php?url=login/connexion">
+<div id="pageConnexion">
+    <form method="post" class="form" action="index.php?url=login/connexion">
       <div class="action">
         <span class="load show" id="login-action" onclick="openLoginPage()">
             Connexion
@@ -17,7 +16,7 @@
         <a href="#" onclick="openRegPage()">Inscription</a>
       </div>
     </form>
-  </body>
-</html>
+</div>
+
 
 

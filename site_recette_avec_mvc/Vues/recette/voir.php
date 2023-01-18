@@ -7,7 +7,6 @@
 
 
     </div>
-    </div>
     <div class="login show-page">
       <div class="avatar-input">
         <input type="file" name="avatar" id="avatar" accept="image/*">
@@ -30,5 +29,3 @@
   </form>
 
 </body>
-
-</html>

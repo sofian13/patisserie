@@ -6,26 +6,27 @@ class ControleurInscription
     {
         $O_bdd = new inscription();
 
-        Vue::montrer('inscription/voir', array('inscription' =>  $O_bdd->donneMessage()));
+        Vue::montrer('inscription/voir');
     }
 
-    public function ajoute_utilisateurAction() {
-
-        $pseudo = $_POST['pseudo'];
-        $email = $_POST['email'];
-        $mdp = $_POST['mdp'];
-        $mdpverif = $_POST['mdpverif'];
-        $avatar = $_POST['avatar'];
+    public function ajoute_utilisateurAction(array $urlParameters, array $postParameters)
+    {
+        var_dump($_FILES);
+        $pseudo = $postParameters['pseudo'];
+        $email = $postParameters['email'];
+        $mdp = $postParameters['mdp'];
+        $mdpverif = $postParameters['mdpverif'];
+        $avatar = file_get_contents($_FILES['avatar']['tmp_name']);
 
         $O_bdd = new inscription();
 
-        $O_bdd ->verifie_utilisateur($pseudo);
-        $O_bdd ->verifie_email($email);
+        $O_bdd->verifie_utilisateur($pseudo);
+        $O_bdd->verifie_email($email);
 
-        $uppercase = preg_match('@[A-Z]@', $mdp);
-        $lowercase = preg_match('@[a-z]@', $mdp);
-        $number    = preg_match('@[0-9]@', $mdp);
-        $specialChars = preg_match('@[^\w]@', $mdp);
+        $majuscule = preg_match('@[A-Z]@', $mdp);
+        $minuscule = preg_match('@[a-z]@', $mdp);
+        $chiffre = preg_match('@[0-9]@', $mdp);
+        $caractereSpecial = preg_match('@[^\w]@', $mdp);
 
         /*imagejpeg($avatar, 'php://memory/temp.jpeg');
 
@@ -34,7 +35,7 @@ class ControleurInscription
             die;
         }*/
 
-        if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($mdp) < 8) {
+        if (!$majuscule || !$minuscule || !$chiffre || !$caractereSpecial || strlen($mdp) < 8) {
             echo "<script>
             msgErreur = document.createElement('p').textContent='mot de passe pas valide, il doit faire au moins 8 caractères de long, il doit contenir au moins 1 chiffre, 1 caractère spécial, 1 majuscule et 1 minuscule.'
             document.getElementById('mdp').appendChild(msgErreur)</script>";
@@ -47,8 +48,6 @@ class ControleurInscription
         }
 
         $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT);
-        $O_bdd ->ajoute_utilisateur($pseudo,$mdp_hash,$email, $avatar);
-
-        Vue::montrer('inscription/voir', array('inscription' =>  $O_bdd->donneMessage()));
+        $O_bdd->ajoute_utilisateur($pseudo, $mdp_hash, $email, $avatar);
     }
 }

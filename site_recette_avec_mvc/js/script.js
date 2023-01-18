@@ -1,15 +1,9 @@
 function openLoginPage() {
-    document.querySelector(".reg").classList.remove("show-page");
-    document.querySelector(".login").classList.add("show-page");
-    document.getElementById("login-action").classList.add("show");
-    document.getElementById("reg-action").classList.remove("show");
+    window.location.href = "/index.php?url=connexion";
 }
 
 function openRegPage() {
-    document.querySelector(".reg").classList.add("show-page");
-    document.querySelector(".login").classList.remove("show-page");
-    document.getElementById("reg-action").classList.add("show");
-    document.getElementById("login-action").classList.remove("show");
+    window.location.href = "/index.php?url=inscription"
 }
 
 let input = document.getElementById('avatar');
@@ -24,4 +18,8 @@ function updateImageDisplay() {
     } else {
         preview.src = window.URL.createObjectURL(curFiles[0]);
     }
+}
+
+function versConnexion() {
+    window.location.href = '/index.php?url=connexion'
 }

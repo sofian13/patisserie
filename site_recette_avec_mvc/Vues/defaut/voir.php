@@ -1,9 +1,13 @@
+<div class="divInput">
+    <input type="button" value="Connexion" onclick="versConnexion()" class="btnConnexion">
+</div>
+
 <div class="cards">
 
-<?php
+    <?php
 
-foreach ($A_vue['recipes'] as $recipe) {
-  echo '<div class = "card"><div class = "card__image-holder"><img class = "card__image" src ="data:image/jpeg;base64,'.base64_encode($recipe['image']).'" alt = "wave"/></div>
+    foreach ($A_vue['recipes'] as $recipe) {
+        echo '<div class = "card"><div class = "card__image-holder"><img class = "card__image" src ="data:image/jpeg;base64,'.base64_encode($recipe['image']).'" alt = "wave"/></div>
   <div class = "card-title">
     <a href = "#" class="toggle-info btn">
       <span class="left"></span>
@@ -19,9 +23,9 @@ foreach ($A_vue['recipes'] as $recipe) {
       </div>
     </div>
     </div>
-  </div>'; 
-  //echo '<img src="data:image/jpeg;base64,'.base64_encode($recipe['image']).'"/>';  
-}
+  </div>';
+        //echo '<img src="data:image/jpeg;base64,'.base64_encode($recipe['image']).'"/>';
+    }
 
-?>
+    ?>
 </div>

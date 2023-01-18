@@ -167,3 +167,21 @@ footer #contact {
         font-size: 6px
     }
 }
+
+.divInput {
+    width: 100%;
+    display: flex;
+    justify-items: flex-start;
+}
+.btnConnexion {
+    color: #333333;
+    border-color: #333333;
+}
+.btnConnexion:hover {
+    background-color: #333333;
+    color: white;
+}
+
+.btnConnexion:focus {
+    border-color: #333333;
+}
