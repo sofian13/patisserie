@@ -22,4 +22,15 @@ final class ControleurRecherche
         return $stmt->fetchAll();
     }
 
+
 }
+
+$recherche = new Recherche();
+if(isset($_GET['query'])){
+    $query = $_GET['query'];
+    $recipes = $recherche->searchRecipes($query);
+    foreach ($recipes as $recipe) {
+        echo '<li><a href="recipe.php?id=' . $recipe['id'] . '">' . $recipe['nom'] . '</a></li>';
+    }
+}
+?>
