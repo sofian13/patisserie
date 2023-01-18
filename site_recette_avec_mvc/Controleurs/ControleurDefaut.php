@@ -5,7 +5,8 @@ final class ControleurDefaut
     public function defautAction()
     {
         $O_defaut =  new Defaut();
-        Vue::montrer('defaut/voir', array('Defaut' =>  $O_defaut->donneMessage()));
+        
+        Vue::montrer('defaut/voir', array('recipes' =>  $O_defaut->getRecipes()));
 
     }
 
@@ -15,5 +16,4 @@ final class ControleurDefaut
         Vue::montrer('defaut/testform', array('formData' =>  $A_postParams));
 
     }
-
 }
