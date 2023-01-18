@@ -9,19 +9,22 @@ final class ControleurRecette
 
     }
 
-    public function ajoute_recetteAction() {
+    public function ajoute_recetteAction(array $urlParameters, array $postParameters) {
+        var_dump($_FILES);
+        $nom = $postParameters['nom'];
+        $ingredient = $postParameters['ingredient'];
+        $instruction = $postParameters['instruction'];
+        $image = file_get_contents($_FILES['avatar']['tmp_name']);
+        $liste_ingredient = $postParameters['liste_ingredient'];
+        $liste_ustensile = $postParameters['liste_ustensile'];
+        $temps = $postParameters['temps'];
+        $difficulte = $postParameters['difficulte'];
+        $cout = $postParameters['cout'];
 
-        $nom = $_POST['nom'];
-        $ingredient = $_POST['ingredient'];
-        $instruction = $_POST['instruction'];
-        $liste_ingredient = $_POST['liste_ingredient'];
-        $liste_ustensile = $_POST['liste_ustensile'];
-        $temps = $_POST['temps'];
-        $cout = $_POST['cout'];
 
-
+     
         $O_bdd = new Recette();
 
-        $O_bdd ->ajoute_recette($nom,$ingredient,$instruction, $liste_ingredient,$liste_ustensile,$temps,$cout);
+        $O_bdd ->ajoute_recette($nom,$ingredient,$instruction,$image, $liste_ingredient,$liste_ustensile,$temps,$difficulte,$cout);
     }
 }
