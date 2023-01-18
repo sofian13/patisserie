@@ -14,7 +14,7 @@ final class ControleurConnexion
 
         $O_connexion = new Connexion();
 
-        $O_connexion->connexion($pseudo,$mdp);
+        $O_connexion->connexion_bd($pseudo,$mdp);
 
     }
 }

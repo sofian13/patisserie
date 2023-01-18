@@ -3,7 +3,7 @@
 final class Connexion
 {
 
-    public function connexion($pseudo, $mdp)
+    public function connexion_bd($pseudo, $mdp)
     {
         $O_bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
 
