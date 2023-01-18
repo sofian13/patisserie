@@ -41,4 +41,13 @@ $(document).ready(function() {
         }
 
     });
+
+   
+
 });
+
+const divs = document.querySelectorAll('.card-actions');
+
+divs.forEach(el => el.addEventListener('click', event => {
+    window.location.href = "./Vues/recipe/voir.php";
+}));
