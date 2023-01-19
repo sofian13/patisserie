@@ -205,6 +205,15 @@ display: none;
     justify-content: center;
 }
 
+.comm .column p {
+    line-height: 140%;
+}
+
+.comm .column p:last-child {
+    padding-top: 10px;
+    line-height: 100%;
+}
+
 .row{
     display: flex;
     flex-direction: row;
