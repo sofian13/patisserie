@@ -162,8 +162,57 @@ display: none;
 
 #avatar-preview {
     border-radius: 50%;
-    max-width: 80px;
     margin-left: 100px;
+}
+
+#avatar-preview-comm {
+    padding-top: 10px;
+    width: 100%;
+    height: 80px;
+}
+
+.pseudo{
+    margin-left: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #565656;
+}
+
+.star{
+    margin-top: -10px;
+    margin-bottom: -10px;
+    font-size: 150%;
+}
+
+.star span{
+    color: #ffc700;
+}
+
+.comm .column:first-child{
+    align-self: flex-start;
+}
+
+.comm .column:last-child {
+    padding-left: 10px;
+    justify-content: left;
+    width: calc(100% - 75px);
+    word-wrap: break-word;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.row > p {
+    margin-left: 10%;
 }
 
 @media screen and (max-width: 480px) {
