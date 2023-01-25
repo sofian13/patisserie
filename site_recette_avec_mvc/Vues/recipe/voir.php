@@ -88,40 +88,48 @@
       </li>
     </ul>
   </div>
-  <!-- Template pour les commentaires -->
+  <!-- Commentaires -->
+  
+
+
+
   <div class="w-3/4 mx-auto">
     <div class="flex gap-4 mx-auto items-center">
       <hr class="bg-primary w-full h-1">
       <h2 class="text-lg font-bold">Commentaires</h2>
       <hr class="bg-primary w-full h-1">
     </div>
-
     <ul class="flex flex-col gap-8 my-8">
-      <li class="comm">
-        <div class="row">
-          <div class="column">
-            <img src="https://media.discordapp.net/attachments/885515822817234954/1063397423428403230/pngegg.png?width=581&height=581" id="avatar-preview-comm" alt="avatar">
+    <?php
+      $O_bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
+      $req = $O_bdd->prepare('SELECT auteur,note,titre,commentaire,CAST(created_at AS date) as date FROM appreciations WHERE id_recette = 41 ORDER BY created_at DESC');
+      $req->execute();
+      $result = $req->fetchAll();
+      foreach( $result as $row ) {
+        ?>
+        <li class="comm">
+          <div class="row">
+            <div class="column">
+              <img src="https://media.discordapp.net/attachments/885515822817234954/1063397423428403230/pngegg.png?width=581&height=581" id="avatar-preview-comm" alt="avatar">
+            </div>
+            <div class="column">
+              <p class="pseudo"><?php echo $row['auteur']; ?><date><?php echo $row['date']; ?></date></p>
+              <p class="star"><span><?php
+                  for ($i = 0; $i < $row['note']; $i++) {
+                    echo '★';
+                  }
+                ?></span><?php
+                  for ($i = 0; $i < 5-$row['note']; $i++) {
+                    echo '★';
+                  }
+                echo ' ' . $row['titre']; ?></p>
+              <p><?php echo $row['commentaire']; ?></p>
+            </div>
           </div>
-          <div class="column">
-            <p class="pseudo">Pseudo<date>date</date></p>
-            <p class="star"><span>★★★★★</span> Titre</p>
-            <p>Je suis commentaire.</p>
-          </div>
-        </div>
-      </li>
-      <li class="comm">
-        <div class="row">
-          <div class="column">
-            <img src="https://media.discordapp.net/attachments/885515822817234954/1063397423428403230/pngegg.png?width=581&height=581" id="avatar-preview-comm" alt="avatar">
-          </div>
-          <div class="column">
-            <p class="pseudo">RAYTEK<date>20/01/2023</date></p>
-            <p class="star"><span>★★</span>★★★ Chiant</p>
-            <p>J'ai fait le template html/css comme on peut le voir. Il me faut encore faire le php/sql et adapter la bdd. Donc je suis loin d'avoir fini.</p>
-          </div>
-        </div>
-      </li>
-      
+        </li>
+        <?php
+      }
+    ?>
     </ul>
   </div>
   <!-- footer -->
