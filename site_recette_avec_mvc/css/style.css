@@ -173,8 +173,17 @@ display: none;
 
 .pseudo{
     margin-left: 2px;
+    margin-right: 20px;
     font-size: 20px;
     font-weight: bold;
+    color: #565656;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pseudo date{
+    font-size: 15px;
+    font-weight: 400;
     color: #565656;
 }
 

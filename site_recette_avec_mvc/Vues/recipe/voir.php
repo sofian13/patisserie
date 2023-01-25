@@ -103,9 +103,9 @@
             <img src="https://media.discordapp.net/attachments/885515822817234954/1063397423428403230/pngegg.png?width=581&height=581" id="avatar-preview-comm" alt="avatar">
           </div>
           <div class="column">
-            <p class="pseudo">Pseudo</p>
+            <p class="pseudo">Pseudo<date>date</date></p>
             <p class="star"><span>★★★★★</span> Titre</p>
-            <p>Je suis un commentaire.</p>
+            <p>Je suis commentaire.</p>
           </div>
         </div>
       </li>
@@ -115,7 +115,7 @@
             <img src="https://media.discordapp.net/attachments/885515822817234954/1063397423428403230/pngegg.png?width=581&height=581" id="avatar-preview-comm" alt="avatar">
           </div>
           <div class="column">
-            <p class="pseudo">RAYTEK</p>
+            <p class="pseudo">RAYTEK<date>20/01/2023</date></p>
             <p class="star"><span>★★</span>★★★ Chiant</p>
             <p>J'ai fait le template html/css comme on peut le voir. Il me faut encore faire le php/sql et adapter la bdd. Donc je suis loin d'avoir fini.</p>
           </div>
