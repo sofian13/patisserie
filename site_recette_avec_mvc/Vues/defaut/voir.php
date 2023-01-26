@@ -1,3 +1,4 @@
+<nav>
 <div class="formRecherche">
     <!-- Formulaire de recherche -->
     <form method="get" action="index.php?url=Recherche" id="form">
@@ -30,6 +31,7 @@
   <input type="button" value="Connexion" onclick="versConnexion()" class="btnConnexion">
   <input type="button" value="Admin" onclick="versAdmin()" class="btnConnexion">
 </div>
+</nav>
 <div class="cards">
     <?php
 
@@ -43,8 +45,9 @@ else if((isset($_GET['sortCout']))) {
 }else {
   $recipes = $A_vue['recipes'];
   }
-
-  foreach ($recipes as $recipe) {
+?>
+<h1>Bienvenue chez the Savorist !</h1> <br><br><br>
+  <?php foreach ($recipes as $recipe) {
     echo '<div class="card" data-id="' . $recipe['id'] . '">
                 <div class="card__image-holder">
                     <img class="card__image" src ="data:image/jpeg;base64,' . base64_encode($recipe['image']) . '" alt = "wave"/></div>
