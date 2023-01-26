@@ -11,6 +11,7 @@ class ControleurInscription
 
     public function ajoute_utilisateurAction(array $urlParameters, array $postParameters)
     {
+        var_dump($_FILES);
         $pseudo = $postParameters['pseudo'];
         $email = $postParameters['email'];
         $mdp = $postParameters['mdp'];
@@ -26,6 +27,13 @@ class ControleurInscription
         $minuscule = preg_match('@[a-z]@', $mdp);
         $chiffre = preg_match('@[0-9]@', $mdp);
         $caractereSpecial = preg_match('@[^\w]@', $mdp);
+
+        /*imagejpeg($avatar, 'php://memory/temp.jpeg');
+
+        if (round(filesize('php://memory/temp.jpeg') / 1024, 3) > 8) {
+            echo "avatar trop lourd";
+            die;
+        }*/
 
         if (!$majuscule || !$minuscule || !$chiffre || !$caractereSpecial || strlen($mdp) < 8) {
             echo "<script>

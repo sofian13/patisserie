@@ -11,7 +11,9 @@ final class ControleurHelloworld
 
     public function testformAction(Array $A_parametres = null, Array $A_postParams = null)
     {
+
         Vue::montrer('helloworld/testform', array('formData' =>  $A_postParams));
+
     }
 
 }
