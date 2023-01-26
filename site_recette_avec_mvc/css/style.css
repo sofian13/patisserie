@@ -9,9 +9,6 @@ body {
     flex-direction: column;
     font-family: sans-serif;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: url(https://media.discordapp.net/attachments/885515822817234954/1062727731709759519/AdobeStock212944246jpeg_62ce7b4760641.png?width=871&height=581);
     background-repeat: no-repeat;
     background-size: cover;
     background: #dce1df;
@@ -93,8 +90,6 @@ input:focus {
     color: royalblue;
 }
 
-
-
 .show-page {
     display: block;
     animation: show-page 1s;
@@ -114,7 +109,8 @@ footer {
     background-color: rgba(0, 0, 0, 0.568);
     color: rgb(143, 143, 143);
     padding: 30px 500px;
-    margin-top: auto;
+    margin-top: 50px;
+    padding-bottom: 110px;
 }
 
 footer h1 {
@@ -160,13 +156,15 @@ footer #contact {
     display: none;
 }
 
-#url{
-display: none;
+#url {
+    display: none;
 }
 
 #avatar-preview {
     border-radius: 50%;
-    margin-left: 100px;
+    margin-left: 90px;
+    max-width: 100px;
+    max-height: 100px;
 }
 
 #avatar-preview-comm {
@@ -175,24 +173,33 @@ display: none;
     height: 80px;
 }
 
-.pseudo{
+.pseudo {
     margin-left: 2px;
+    margin-right: 20px;
     font-size: 20px;
     font-weight: bold;
     color: #565656;
+    display: flex;
+    justify-content: space-between;
 }
 
-.star{
+.pseudo date {
+    font-size: 15px;
+    font-weight: 500;
+    color: #565656;
+}
+
+.star {
     margin-top: -10px;
     margin-bottom: -10px;
     font-size: 150%;
 }
 
-.star span{
+.star span {
     color: #ffc700;
 }
 
-.comm .column:first-child{
+.comm .column:first-child {
     align-self: flex-start;
 }
 
@@ -218,14 +225,131 @@ display: none;
     line-height: 100%;
 }
 
-.row{
+.row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.row > p {
+.row>p {
     margin-left: 10%;
+}
+
+.comment-session {
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.comment-box {
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.comment-box .row {
+    display: flex;
+    align-items: center;
+}
+
+.comment-session .name {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    width: 200px;
+}
+
+.comment-box .user {
+    display: flex;
+    width: min-content;
+    padding-top: 30px;
+}
+
+.comment-box .image img {
+    width: 50px;
+    height: 55px;
+    margin-right: 10px;
+    border-radius: 50%;
+    max-width: unset;
+    padding-top: 5px;
+}
+
+.rating-css div {
+    color: #ffc700;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: -6px;
+}
+
+.rating-css input {
+    display: none;
+}
+
+.rating-css input+label {
+    /*    font-size: 60px;
+    text-shadow: 1px 1px 0 #ffe400;*/
+    cursor: pointer;
+}
+
+.rating-css input:checked+label~label {
+    color: #838383;
+}
+
+.rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+
+.comment-box .comment-title {
+    background: #eee;
+    width: 40%;
+    height: 34px;
+    margin: 10px 0 0 0;
+    padding: 5px;
+    padding-left: 10px;
+    resize: inherit;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #0003;
+}
+
+.comment-box .comment-title:focus-visible {
+    box-shadow: inset 0 0 0 1px #009cff;
+    outline: none;
+}
+
+.comment-box .comment {
+    background: #eee;
+    width: 100%;
+    height: 152px;
+    margin: 10px 0;
+    padding: 10px;
+    resize: inherit;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #0003;
+}
+
+.comment-box .comment:focus-visible {
+    box-shadow: inset 0 0 0 1px #009cff;
+    outline: none;
+}
+
+.comment-box .comment-submit {
+    float: right;
+    padding: 6px 10px;
+    border: none;
+    background: #009cff;
+    color: #eee;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.comment-box .comment-submit:hover {
+    background: #0077b3;
 }
 
 @media screen and (max-width: 480px) {
@@ -239,10 +363,12 @@ display: none;
     display: flex;
     justify-items: flex-start;
 }
+
 .btnConnexion {
     color: #333333;
     border-color: #333333;
 }
+
 .btnConnexion:hover {
     background-color: #333333;
     color: white;
@@ -252,13 +378,16 @@ display: none;
     border-color: #333333;
 }
 
+
 /* Style du formulaire de recherche */
+
 .formRecherche form {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px 0;
-  }
+}
+
 .formRecherche form input[type="text"] {
     width: 60%;
     padding: 12px 20px;
@@ -266,7 +395,8 @@ display: none;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
-  }
+}
+
 .formRecherche form input[type="submit"] {
     width: 40%;
     background-color: #4caf50;
@@ -276,7 +406,236 @@ display: none;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
+
 .formRecherche form input[type="submit"]:hover {
     background-color: #45a049;
-  }
+}
+
+
+/*css style 2 */
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 200;
+    src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xKydSBYKcSV-LCoeQqfX1RYOo3i94_wlxdr.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdr.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 900;
+    src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlxdr.ttf) format('truetype');
+}
+
+a.btn {
+    background: #0096a0;
+    border-radius: 4px;
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    display: inline-block;
+    padding: 6px 30px 8px;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+}
+
+.no-touch a.btn:hover {
+    background: #00a2ad;
+    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+    transform: translateY(-2px);
+    transition: all 0.25s 0s ease-out;
+}
+
+.no-touch a.btn:active,
+a.btn:active {
+    background: #008a93;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.25);
+    transform: translate3d(0, 1px, 0);
+    transition: all 0.025s 0s ease-out;
+}
+
+div.cards {
+    margin: 80px auto;
+    max-width: 960px;
+    text-align: center;
+}
+
+div.card {
+    background: #ffffff;
+    display: inline-block;
+    margin: 8px;
+    max-width: 300px;
+    perspective: 1000;
+    position: relative;
+    text-align: left;
+    transition: all 0.3s 0s ease-in;
+    width: 300px;
+    z-index: 1;
+}
+
+div.card img {
+    max-width: 300px;
+}
+
+div.card .card__image-holder {
+    background: rgba(0, 0, 0, 0.1);
+    height: 0;
+    padding-bottom: 75%;
+}
+
+div.card div.card-title {
+    background: #ffffff;
+    padding: 6px 15px 10px;
+    position: relative;
+    z-index: 0;
+}
+
+div.card div.card-title a.toggle-info {
+    border-radius: 32px;
+    height: 32px;
+    padding: 0;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    width: 32px;
+}
+
+div.card div.card-title a.toggle-info span {
+    background: #ffffff;
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 16px;
+    transition: all 0.15s 0s ease-out;
+    width: 12px;
+}
+
+div.card div.card-title a.toggle-info span.left {
+    right: 14px;
+    transform: rotate(45deg);
+}
+
+div.card div.card-title a.toggle-info span.right {
+    left: 14px;
+    transform: rotate(-45deg);
+}
+
+div.card div.card-title h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin: 0;
+    padding: 0;
+}
+
+div.card div.card-title h2 small {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+div.card div.card-description {
+    padding: 0 15px 10px;
+    position: relative;
+    font-size: 14px;
+}
+
+div.card div.card-actions {
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
+    padding: 10px 15px 20px;
+    text-align: center;
+}
+
+div.card div.card-flap {
+    background: #d9d9d9;
+    position: absolute;
+    width: 100%;
+    transform-origin: top;
+    transform: rotateX(-90deg);
+}
+
+div.card div.flap1 {
+    transition: all 0.3s 0.3s ease-out;
+    z-index: -1;
+}
+
+div.card div.flap2 {
+    transition: all 0.3s 0s ease-out;
+    z-index: -2;
+}
+
+div.cards.showing div.card {
+    cursor: pointer;
+    opacity: 0.6;
+    transform: scale(0.88);
+}
+
+.no-touch div.cards.showing div.card:hover {
+    opacity: 0.94;
+    transform: scale(0.92);
+}
+
+div.card.show {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+div.card.show div.card-title a.toggle-info {
+    background: #ff6666 !important;
+}
+
+div.card.show div.card-title a.toggle-info span {
+    top: 15px;
+}
+
+div.card.show div.card-title a.toggle-info span.left {
+    right: 10px;
+}
+
+div.card.show div.card-title a.toggle-info span.right {
+    left: 10px;
+}
+
+div.card.show div.card-flap {
+    background: #ffffff;
+    transform: rotateX(0deg);
+}
+
+div.card.show div.flap1 {
+    transition: all 0.3s 0s ease-out;
+}
+
+div.card.show div.flap2 {
+    transition: all 0.3s 0.2s ease-out;
+}
