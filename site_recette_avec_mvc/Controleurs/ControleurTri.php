@@ -5,7 +5,7 @@ final class ControleurTri
     {
         $O_tri =  new Tri();
         
-        Vue::montrer('defaut/voir', array('tri' =>  $O_tri->sortByCout()));
+        Vue::montrer('defaut/voir', array('triCout' =>  $O_tri->sortByCout(),'triDifficulte' =>  $O_tri->sortByDifficulte()));
 
     }
 }
