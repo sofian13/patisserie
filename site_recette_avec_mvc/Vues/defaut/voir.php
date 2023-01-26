@@ -24,9 +24,12 @@
 
 
 <div class="divInput">
-    <input type="button" value="Connexion" onclick="versConnexion()" class="btnConnexion">
+<?php if ($_SESSION['userAdmin']) {
+  echo'<input type="button" value="Créer recette" onclick="versCreation()" class="btnConnexion">';
+}?>
+  <input type="button" value="Connexion" onclick="versConnexion()" class="btnConnexion">
+  <input type="button" value="Admin" onclick="versAdmin()" class="btnConnexion">
 </div>
-
 <div class="cards">
     <?php
 
@@ -46,13 +49,12 @@ else if((isset($_GET['sortCout']))) {
                 <div class="card__image-holder">
                     <img class="card__image" src ="data:image/jpeg;base64,' . base64_encode($recipe['image']) . '" alt = "wave"/></div>
 <div class = "card-title">';
-    
-      echo '<a href = "/admin/checkAdmin" class="toggle-info btn">
+    if ($_SESSION['userAdmin']) {
+      echo '<a  class="toggle-info btn">
     <span class="left"></span>
     <span class="right"></span>
   </a>';
-
-    
+    }
     echo '<h2>' . $recipe['nom'] . '</h2>
 </div>
 <div class ="card-flap flap-1">

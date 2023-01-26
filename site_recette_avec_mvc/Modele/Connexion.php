@@ -11,6 +11,8 @@ final class Connexion
         while(!$req->execute(array($pseudo))) {
             $req->execute(array($pseudo));
         }
+        $_SESSION['pseudo'] = $pseudo;
+        $_SESSION['userAdmin'] = false;
         $utilisateur = $req ->fetch();
 
         if ($utilisateur && password_verify($mdp, $utilisateur["password"])) {

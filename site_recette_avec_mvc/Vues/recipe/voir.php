@@ -1,3 +1,5 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/30ae2add45.js" ></script>
 <?php 
 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
       $url = "https://";   

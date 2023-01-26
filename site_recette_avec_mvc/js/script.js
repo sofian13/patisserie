@@ -27,3 +27,11 @@ function updateImageDisplay() {
 function versConnexion() {
     window.location.href = '/index.php?url=connexion'
 }
+
+function versCreation() {
+    window.location.href = '/index.php?url=recette'
+}
+
+function versAdmin() {
+    window.location.href = 'index.php?url=Admin/checkAdmin'
+}
