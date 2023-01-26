@@ -18,7 +18,7 @@ final class Defaut
 
     //Fonction de recherche des recettes
     public function getRecipes() {
-        $stmt = $this->db->prepare("SELECT * FROM recettes");
+        $stmt = $this->db->prepare("SELECT * FROM recettes ORDER BY RAND() LIMIT 3");
         
         if ($stmt->execute() === false) {
             throw new Exception("Error Processing Request", 1);
