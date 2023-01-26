@@ -123,7 +123,7 @@
                     echo '★';
                   }
                 echo ' ' . $row['titre']; ?></p>
-              <p><?php echo $row['commentaire']; ?></p>
+              <p><?php echo str_replace("\n", "<br>", $row['commentaire']); ?></p>
             </div>
           </div>
         </li>
@@ -131,6 +131,39 @@
       }
     ?>
     </ul>
+    <div class="comment-session">
+      <div class="comment-box">
+        <form action="" method="post">
+        <div class="row">
+          <div class="user">
+            <div class="image">
+              <img src="https://media.discordapp.net/attachments/885515822817234954/1063397423428403230/pngegg.png?width=581&height=581">
+            </div>
+            <div class="column">
+              <div class="name">RAYTEK</div>
+              <div class="rating-css">
+                <div class="star-icon">
+                  <input type="radio" name="rating" id="rating1">
+                  <label for="rating1" class="fa fa-star"></label>
+                  <input type="radio" name="rating" id="rating2">
+                  <label for="rating2" class="fa fa-star"></label>
+                  <input type="radio" name="rating" id="rating3">
+                  <label for="rating3" class="fa fa-star"></label>
+                  <input type="radio" name="rating" id="rating4">
+                  <label for="rating4" class="fa fa-star"></label>
+                  <input type="radio" name="rating" id="rating5">
+                  <label for="rating5" class="fa fa-star"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <textarea class="comment-title" name="comment-title" placeholder="Titre"></textarea>
+        <textarea class="comment" name="comment" placeholder="Commentaire"></textarea>
+        <button class="comment-submit">Commenter</button>
+        </form>
+      </div>
+    </div>
   </div>
   <!-- footer -->
   <ul class="w-3/4 mx-auto flex gap-4 font-bold justify-end">
