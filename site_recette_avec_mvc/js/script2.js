@@ -48,6 +48,13 @@ $(document).ready(function() {
 
 const divs = document.querySelectorAll('.card-actions');
 
-divs.forEach(el => el.addEventListener('click', event => {
-    window.location.href = "./Vues/recipe/voir.php";
-}));
+const buttons = document.querySelectorAll('.btns');
+buttons.forEach(button => {
+    button.addEventListener('click', event => {
+        const card = event.target.closest('.card');
+        const id = card.getAttribute('data-id');
+        window.location.href = `/recipe?id=${id}`;
+
+
+    });
+});

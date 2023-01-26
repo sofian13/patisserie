@@ -26,8 +26,4 @@ final class Recherche
         }
             return $stmt->fetchAll();
     }
-
-   
 }
-
-

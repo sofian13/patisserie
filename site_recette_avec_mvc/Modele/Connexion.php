@@ -14,8 +14,12 @@ final class Connexion
         $utilisateur = $req ->fetch();
 
         if ($utilisateur && password_verify($mdp, $utilisateur["password"])) {
+            session_start();
+            $_SESSION['utilisateur'] = $pseudo;
             header('Location:/index.php');
             exit;
         }
     }
+
+    
 }
