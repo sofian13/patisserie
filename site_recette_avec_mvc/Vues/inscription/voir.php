@@ -1,5 +1,4 @@
 <div id="pageInscription">
-  <form enctype="multipart/form-data" method="post" class="form" action="index.php?url=inscription/ajoute_utilisateur">
       <div class="action">
         <span class="load" id="login-action" onclick="openLoginPage()">
             Connexion
@@ -8,7 +7,8 @@
             Inscription
         </span>
       </div>
-      <div class="reg">
+    <form enctype="multipart/form-data" method="post" class="form" action="index.php?url=inscription/ajoute_utilisateur">
+        <div class="reg">
           <div class="avatar-input">
               <input type="file" name="avatar" id="avatar" accept="image/*">
               <label for="avatar">Choisissez un avatar</label>
@@ -22,6 +22,7 @@
           </div>
       </div>
   </form>
+    <button onclick="openMdp()" name="btn">Mot de passe oublié</button>
 </div>
 
 

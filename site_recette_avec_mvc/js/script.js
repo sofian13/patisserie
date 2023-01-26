@@ -6,6 +6,10 @@ function openRegPage() {
     window.location.href = "/index.php?url=inscription"
 }
 
+function openMdp() {
+    window.location.href = "/index.php?url=Reinisialisation_mdp"
+}
+
 let input = document.getElementById('avatar');
 let preview = document.getElementById('avatar-preview');
 

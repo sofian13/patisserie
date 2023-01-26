@@ -2,6 +2,7 @@
 
 class Reinisialisation_mdp
 {
+    public $token = 0;
     function defautAction() {
         Vue::montrer('Reinisialisation_mdp/temporaire');
     }
@@ -19,11 +20,8 @@ class Reinisialisation_mdp
         }
 
         else {
-            $_SERVER['token'] = uniqid();
-
-
-            $token = $_SERVER['token'];
-
+            $this->token = uniqid();
+            $token = $this->token;
             $date_expiration = date('y-m-d h:i:s', strtotime("+1 day"));
 
             $O_bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
@@ -38,20 +36,19 @@ class Reinisialisation_mdp
             mail($email, "Réinitialisation du mot de passe", $message);
 
             echo "Un email a été envoyé à $email";
+            echo "$lien_re";
         }
     }
 
-    function changeMdp($mdp) {
-        $token = $_SERVER['token'];
-
-        var_dump($_SERVER['token']);
-
+    function changeMdp($mdp, $token) {
         $O_bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
 
-        $req = $O_bdd ->prepare('SELECT * FROM token WHERE token = ?');
+        $req = $O_bdd ->prepare('SELECT * FROM token WHERE email = ?');
         $req ->execute(array($token));
 
         $ligne = $req ->fetchAll();
+
+        var_dump($ligne);
 
         if ($ligne > 0) {
             $dateExpiration = $ligne['expire'];
