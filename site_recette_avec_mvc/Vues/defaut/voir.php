@@ -7,6 +7,20 @@
 </form>
 </div>
 
+<div class="formTri">
+<form action="index.php?url=Tri" method="get">
+<input type="submit" name="sortCout" value="Trier par coût">
+<input type="text" name="url" value="Tri" id="url">
+</form>
+
+<form action="index.php?url=Tri" method="get">
+<input type="submit" name="sortDifficulte" value="Trier par difficulte">
+<input type="text" name="url" value="Tri" id="url">
+</form>
+</div>
+
+
+
 
 <div class="divInput">
     <input type="button" value="Connexion" onclick="versConnexion()" class="btnConnexion">
@@ -18,7 +32,11 @@
 if(isset($_GET['query'])){
    $recipes = $A_vue['recherche'];
 }
-else {
+else if((isset($_GET['sortCout']))) {
+  $recipes = $A_vue['triCout']; // afficher les recettes triées ici
+}else if((isset($_GET['sortDifficulte']))) {
+  $recipes = $A_vue['triDifficulte']; // afficher les recettes triées ici
+}else {
   $recipes = $A_vue['recipes'];
   }
 
