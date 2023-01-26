@@ -36,7 +36,6 @@ class Reinisialisation_mdp
             mail($email, "Réinitialisation du mot de passe", $message);
 
             echo "Un email a été envoyé à $email";
-            echo "$lien_re";
         }
     }
 
