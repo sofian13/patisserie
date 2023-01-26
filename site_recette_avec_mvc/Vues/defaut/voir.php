@@ -5,6 +5,15 @@
     <input type="text" name="url" value="Recherche" id="url">
     <input type="submit" value="Rechercher" form ="form">
 </form>
+
+<form action="index.php?url=Tri" method="get">
+<input type="submit" name="sort" value="Trier par coût">
+<input type="text" name="url" value="Tri" id="url">
+</form>
+
+
+
+
 </div>
 
 
@@ -15,10 +24,13 @@
 <div class="cards">
 <?php
 
+
 if(isset($_GET['query'])){
-   $recipes = $A_vue['recherche'];
+  $recipes = $A_vue['recherche'];
 }
-else {
+else if((isset($_GET['sort']))) {
+  $recipes = $A_vue['tri']; // afficher les recettes triées ici
+}else {
   $recipes = $A_vue['recipes'];
   }
 
