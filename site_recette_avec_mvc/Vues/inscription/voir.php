@@ -21,7 +21,7 @@
               <a href="#" onclick="openLoginPage()">Connexion</a>
           </div>
       </div>
-  </form>
+    </form>
     <button onclick="openMdp()" name="btn">Mot de passe oublié</button>
 </div>
 

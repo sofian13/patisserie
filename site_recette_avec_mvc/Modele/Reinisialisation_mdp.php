@@ -43,19 +43,30 @@ class Reinisialisation_mdp
     function changeMdp($mdp, $token) {
         $O_bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
 
-        $req = $O_bdd ->prepare('SELECT * FROM token WHERE email = ?');
+        $req = $O_bdd ->prepare('SELECT * FROM token WHERE token_key = ?');
         $req ->execute(array($token));
 
+        $majuscule = preg_match('@[A-Z]@', $mdp);
+        $minuscule = preg_match('@[a-z]@', $mdp);
+        $chiffre = preg_match('@[0-9]@', $mdp);
+        $caractereSpecial = preg_match('@[^\w]@', $mdp);
+
+        if (!$majuscule || !$minuscule || !$chiffre || !$caractereSpecial || strlen($mdp) < 8) {
+            echo "<script>
+            msgErreur = document.createElement('p').textContent='mot de passe pas valide, il doit faire au moins 8 caractères de long, il doit contenir au moins 1 chiffre, 1 caractère spécial, 1 majuscule et 1 minuscule.'
+            document.getElementById('mdp').appendChild(msgErreur)</script>";
+            die;
+        }
+
+        $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT);
         $ligne = $req ->fetchAll();
 
-        var_dump($ligne);
-
         if ($ligne > 0) {
-            $dateExpiration = $ligne['expire'];
+            $ligne2 = $ligne[0];
 
-            if (strtotime($dateExpiration) > strtotime(date('y-m-d h:i:s'))) {
-                $req = $O_bdd ->prepare('UPDATE utilisateurs SET password = ? FROM utilisateurs, token WHERE utilisateurs.email = token.email AND token.email = ?');
-                $req ->execute(array($mdp, $ligne['email']));
+            if (strtotime($ligne2[0]) > strtotime(date('y-m-d h:i:s'))) {
+                $req = $O_bdd ->prepare('UPDATE utilisateurs SET password = ? WHERE email = ?');
+                $req ->execute(array($mdp_hash, $ligne2['email']));
             }
             else {
                 echo 'Le lien a expiré';

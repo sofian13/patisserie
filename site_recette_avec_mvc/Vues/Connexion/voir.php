@@ -14,9 +14,9 @@
         <input type="password" placeholder="Mot de passe" name="mdp"/>
         <button>Connexion</button>
         <a href="#" onclick="openRegPage()">Inscription</a>
-        <a href="#" onclick="openMdpOublie()">Mot de passe oublié</a>
       </div>
     </form>
+    <button onclick="openMdp()" name="btn">Mot de passe oublié</button>
 </div>
 
 

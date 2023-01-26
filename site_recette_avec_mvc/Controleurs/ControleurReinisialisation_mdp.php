@@ -17,18 +17,12 @@ class ControleurReinisialisation_mdp
         $O_re_mdp ->compteExiste($email);
     }
 
-    public function changeMdpAction(array $urlParameters, array $postParameters) {
+    public function changeMdpAction($mdp, $mdpverif, $token) {
         $O_re_mdp = new Reinisialisation_mdp();
-
-        $mdp = $postParameters['mdp'];
-        $mdpverif = $postParameters['mdpverif'];
-        $a = $_GET['token'];
-        var_dump($a);
-        var_dump("pas bien");
 
         if ($mdp == $mdpverif) {
             $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT);
-            $O_re_mdp->changeMdp($mdp_hash, $a);
+            $O_re_mdp->changeMdp($mdp_hash, $token);
         }
         else {
             echo "Les mots de passe ne correspondent pas.";
