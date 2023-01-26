@@ -22,7 +22,15 @@ final class Tri
         throw new Exception("Error Processing Request", 1);
         }
         return $stmt->fetchAll();
+    }
+
+    public function sortByDifficulte() {
+        $stmt = $this->db->prepare("SELECT * FROM recettes order by difficulte desc");
+        if ($stmt->execute() === false) {
+        throw new Exception("Error Processing Request", 1);
         }
+        return $stmt->fetchAll();
+    }
     
    
 }
