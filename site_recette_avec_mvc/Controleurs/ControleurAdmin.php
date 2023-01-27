@@ -6,10 +6,32 @@ final class ControleurAdmin
     public function defautAction()
     {
         $this->model = new Admin();
-        $id = $_GET['id'];
-        Vue::montrer('/admin/voir', array('admin' =>  $this->model->deleteRecette($id)));
+        $_SESSION['users_list'] = $this->model->getUsers();
+        Vue::montrer('admin/voir');
     }
 
+    public function supprimerUtilisateurAction() {
+        // get id
+        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+            $url = "https://";   
+        else  
+            $url = "http://";   
+        // Append the host(domain name, ip) to the URL.   
+        $url.= $_SERVER['HTTP_HOST'];   
+        // Append the requested resource location to the URL   
+        $url.= $_SERVER['REQUEST_URI'];
+        // id = url.split("=")[1];
+        $_SESSION["id_user"] = explode("=", $url)[1];
+
+        // instancier le modèle Admin
+        $this->model = new Admin();
+    
+        // utiliser la méthode deleteUsers pour supprimer un utilisateur
+        $this->model->deleteUsers($_SESSION["id_user"]);
+    
+        // rediriger l'utilisateur vers la liste des utilisateurs
+        header('location: /admin');
+    }
 
     public function checkAdminAction()
     {

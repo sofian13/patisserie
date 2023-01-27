@@ -129,7 +129,7 @@
                     <?php
                 }
                 else{
-                    echo "Vous devez être connecter pour pouvoir envoyer un commentaire";
+                    echo "Vous devez être connecter pour pouvoir ajouter un commentaire";
                 }
                 ?>
             </div>
