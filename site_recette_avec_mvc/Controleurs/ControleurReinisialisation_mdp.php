@@ -21,8 +21,7 @@ class ControleurReinisialisation_mdp
         $O_re_mdp = new Reinisialisation_mdp();
 
         if ($mdp == $mdpverif) {
-            $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT);
-            $O_re_mdp->changeMdp($mdp_hash, $token);
+            $O_re_mdp->changeMdp($mdp, $token);
         }
         else {
             echo "Les mots de passe ne correspondent pas.";

@@ -12,11 +12,11 @@ final class inscription {
 
         $bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
 
-        $req = $bdd->prepare('INSERT INTO utilisateurs(nom, password, email, date_premiere_connexion, photo, date_derniere_connexion) VALUES(?, ?, ?, ?, ?, ?)');
+        $req = $bdd->prepare('INSERT INTO utilisateurs(nom, password, email, date_premiere_connexion, photo) VALUES(?, ?, ?, ?, ?)');
 
         $date = date('y-m-d h:i:s');
-        while(!$req->execute(array($pseudo, $mdp, $email, $date, $avatar, $date))) {
-            $req->execute(array($pseudo, $mdp, $email, $date, $avatar, $date));
+        while(!$req->execute(array($pseudo, $mdp, $email, $date, $avatar))) {
+            $req->execute(array($pseudo, $mdp, $email, $date, $avatar));
         }
         header('Location:/index.php');
         exit;

@@ -1,6 +1,6 @@
 <form method="post">
-    <input type="password" name="mdp" required>
-    <input type="password" name="mdpverif" required>
+    <input type="password" name="mdp" class="mdpreset" required>
+    <input type="password" name="mdpverif" class="mdpreset" required>
     <button name="btnConfirmation">Confirmer</button>
 </form>
 <?php
