@@ -26,7 +26,7 @@
 
 
     <div class="divInput">
-    <?php if ($_SESSION['userAdmin']) {
+    <?php if (isset($_SESSION['userAdmin'])) {
     echo'<input type="button" value="Créer recette" onclick="versCreation()" class="btnConnexion">';
     }?>
     <input type="button" value="Connexion" onclick="versConnexion()" class="btnConnexion">
