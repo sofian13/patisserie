@@ -10,7 +10,6 @@ final class ControleurRecipe
 
     public function ajoute_commAction(array $urlParameters, array $postParameters)
     {
-        session_start();
         $pseudo = $_SESSION['utilisateur'];
         $titre = $postParameters['comment-title'];
         $commentaire = $postParameters['comment'];
@@ -25,10 +24,25 @@ final class ControleurRecipe
         $O_bdd->ajoute_comm($pseudo, $titre, $commentaire, $note, $id_recette);
     }
 
-    public function testAction()
+    public function getassetsAction()
     {
+        // get id
+        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+            $url = "https://";   
+        else  
+            $url = "http://";   
+        // Append the host(domain name, ip) to the URL.   
+        $url.= $_SERVER['HTTP_HOST'];   
+        // Append the requested resource location to the URL   
+        $url.= $_SERVER['REQUEST_URI'];
+        // id = url.split("=")[1];
+        $_SESSION["id_recette"] = explode("=", $url)[1];
         $O_bdd = new recipe();
-        $O_bdd->test();
-
+        // get recipe
+        $_SESSION["recipe"] = $O_bdd->getRecipeById($_SESSION["id_recette"]);
+        // get commentaires
+        $_SESSION["commentaires"] = $O_bdd->getCommentairesByRecetteId($_SESSION["id_recette"]);
+        // On affiche la page recipe en appelant le defautAction du controleur
+        header('Location:/recipe');
     }
 }
