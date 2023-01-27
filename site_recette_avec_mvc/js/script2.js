@@ -54,7 +54,7 @@ buttons.forEach(button => {
     button.addEventListener('click', event => {
         const card = event.target.closest('.card');
         const id = card.getAttribute('data-id');
-        window.location.href = `./Vues/recipe/voir.php?id=${id}`;
+        window.location.href = `recipe?id=${id}`;
 
 
     });

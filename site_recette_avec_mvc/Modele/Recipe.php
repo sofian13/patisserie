@@ -9,10 +9,11 @@ final class recipe {
         $req = $bdd->prepare('INSERT INTO appreciations(auteur, id_recette, note, titre, commentaire) VALUES(?, ?, ?, ?, ?)');
 
         $date = date('y-m-d h:i:s');
+        echo $id_recette;
         while(!$req->execute(array($pseudo, $id_recette, $note, $titre, $commentaire))) {
             $req->execute(array($pseudo, $id_recette, $note, $titre, $commentaire));
         }
-        header('Location:/recipe');
+        header('Location:/recipe?='.$id_recette);
         exit;
     }
 

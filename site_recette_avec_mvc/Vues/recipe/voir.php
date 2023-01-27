@@ -11,6 +11,7 @@ $url.= $_SERVER['HTTP_HOST'];
 $url.= $_SERVER['REQUEST_URI'];
 // id = url.split("=")[1];
 $id = explode("=", $url)[1];
+
 $bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
 $query = $bdd->prepare('SELECT  instructions, nom, image , liste_ingredients, temps_preparation, difficulte, cout FROM recettes WHERE id = :id');
 $query->execute(['id' => $id]);
@@ -71,10 +72,6 @@ $isntructions = $result['instructions'];
                 </ul>
             </div>
             <!-- Commentaires -->
-
-
-
-
             <div class="w-3/4 mx-auto">
                 <div class="flex gap-4 mx-auto items-center">
                     <hr class="bg-primary w-full h-1">
@@ -83,47 +80,44 @@ $isntructions = $result['instructions'];
                 </div>
                 <ul class="flex flex-col gap-8 my-8">
                     <?php
-      $O_bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
-      $req = $O_bdd->prepare('SELECT auteur,note,titre,commentaire,CAST(created_at AS date) as date,photo FROM appreciations,utilisateurs WHERE id_recette = 41 AND auteur=nom ORDER BY created_at DESC');
-      $req->execute();
-      $result = $req->fetchAll();
-      
+                    $O_bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
+                    $req = $O_bdd->prepare('SELECT auteur,note,titre,commentaire,CAST(created_at AS date) as date,photo FROM appreciations,utilisateurs WHERE id_recette = ? AND auteur=nom ORDER BY created_at DESC');
+                    $req->execute(array($id));
+                    $result = $req->fetchAll();
+                    $img = $O_bdd->prepare('Select photo from utilisateurs where nom = ?');
+                    $img->execute(array($_SESSION['utilisateur']));
+                    $img = $img->fetch();
 
-      $img = $O_bdd->prepare('Select photo from utilisateurs where nom = ?');
-      $img->execute(array($_SESSION['utilisateur']));
-      $img = $img->fetch();
-
-      foreach( $result as $row ) {
-        ?>
-                    <li class="comm">
-                        <div class="row">
-                            <div class="column">
-                                <img src="data:image/jpeg;base64,<?php echo base64_encode($row['photo'])?>"
-                                    id="avatar-preview-comm" alt="avatar">
+                    foreach( $result as $row ) {
+                        ?>
+                        <li class="comm">
+                            <div class="row">
+                                <div class="column">
+                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($row['photo'])?>" id="avatar-preview-comm" alt="avatar">
+                                </div>
+                                <div class="column">
+                                    <p class="pseudo"><?php echo $row['auteur']; ?><date><?php echo $row['date']; ?></date>
+                                    </p>
+                                    <p class="star"><span><?php
+                                    for ($i = 0; $i < $row['note']; $i++) {
+                                        echo '★';
+                                    }
+                                    ?></span><?php
+                                    for ($i = 0; $i < 5-$row['note']; $i++) {
+                                        echo '★';
+                                    }
+                                    echo ' ' . $row['titre']; ?></p>
+                                    <p><?php echo str_replace("\n", "<br>", $row['commentaire']); ?></p>
+                                </div>
                             </div>
-                            <div class="column">
-                                <p class="pseudo"><?php echo $row['auteur']; ?><date><?php echo $row['date']; ?></date>
-                                </p>
-                                <p class="star"><span><?php
-                  for ($i = 0; $i < $row['note']; $i++) {
-                    echo '★';
-                  }
-                ?></span><?php
-                  for ($i = 0; $i < 5-$row['note']; $i++) {
-                    echo '★';
-                  }
-                echo ' ' . $row['titre']; ?></p>
-                                <p><?php echo str_replace("\n", "<br>", $row['commentaire']); ?></p>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-      }
-    ?>
+                        </li>
+                        <?php
+                    }
+                    ?>
                 </ul>
                 <div class="comment-session">
                     <div class="comment-box">
-                        <form action="recipe/ajoute_comm" method="post">
+                        <form action="/recipe/ajoute_comm" method="post">
                             <div class="row">
                                 <div class="user">
                                     <div class="image">
@@ -150,18 +144,18 @@ $isntructions = $result['instructions'];
                             </div>
                             <textarea class="comment-title" name="comment-title" placeholder="Titre"></textarea>
                             <textarea class="comment" name="comment" placeholder="Commentaire"></textarea>
-                            <input type="number" name="id_recette" value="41" hidden>
+                            <input type="number" name="id_recette" value="<?php echo $id?>" hidden>
                             <button class="comment-submit">Commenter</button>
                         </form>
                     </div>
                 </div>
             </div>
-
-            <!-- footer -->
-            <ul class="w-3/4 mx-auto flex gap-4 font-bold justify-end">
-                <li>Source : </li>
-                <li><a class="underline">Biodélice</a></li>
-                <li><a class="underline">Marmiton</a></li>
-            </ul>
-
         </div>
+    </div>
+    <!-- footer -->
+    <ul class="w-3/4 mx-auto flex gap-4 font-bold justify-end">
+        <li>Source : </li>
+        <li><a class="underline">Biodélice</a></li>
+        <li><a class="underline">Marmiton</a></li>
+    </ul>
+</div>

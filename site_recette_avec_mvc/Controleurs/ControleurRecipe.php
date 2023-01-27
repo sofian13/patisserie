@@ -20,6 +20,7 @@ final class ControleurRecipe
             $note = 5;
         }
         $id_recette = $postParameters['id_recette'];
+        echo $id_recette;
         $O_bdd = new recipe();
         $O_bdd->ajoute_comm($pseudo, $titre, $commentaire, $note, $id_recette);
     }
