@@ -1,14 +1,15 @@
 <footer>
 
-    <h1>Nos services</h1>
+    <h2>Nos services</h2>
     <div class="services">
 
         <div class="service">
             <h3>Information:</h3>
-            <p>Nous sommes un jeune groupe de 6 cuisiniers débutants et nous voulons vous montrer comment faire nos meilleures recettes.</p>
+            <p>We are a small group of 5 people who develop websites.</p>
         </div>
 
-        <p id="contact">Contact : 07 71 15 37 09 | &copy; 2023, The Savorist.</p>
+        <p id="contact">Contact : 07 71 15 37 09 | &copy; 2021, New York.</p>
+</div>
 </footer>
 <script src="/js/script.js"></script>
 <script src="/js/script2.js"></script>

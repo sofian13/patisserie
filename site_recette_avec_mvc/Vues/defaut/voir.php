@@ -3,7 +3,7 @@
     <!-- Formulaire de recherche -->
     <form method="get" action="index.php?url=Recherche" id="form">
         <input type="text" name="query" placeholder="Rechercher une recette">
-        <input type="text" name="url" value="Recherche" id="url">
+        <input type="text" name="url" value="Recherche" id="url1">
         <input type="submit" value="Rechercher" form="form">
     </form>
 </div>
@@ -11,13 +11,13 @@
     <div class="formTri1">
         <form action="index.php?url=Tri" method="get">
             <input type="submit" name="sortCout" value="Trier par coût">
-            <input type="text" name="url" value="Tri" id="url">
+            <input type="text" name="url" value="Tri" id="url2">
         </form>
     </div>
     <div class="formTri2">
         <form action="index.php?url=Tri" method="get">
             <input type="submit" name="sortDifficulte" value="Trier par difficulte">
-            <input type="text" name="url" value="Tri" id="url">
+            <input type="text" name="url" value="Tri" id="url3">
         </form>
     </div>
 </div>
