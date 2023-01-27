@@ -1,13 +1,13 @@
 function openLoginPage() {
-    window.location.href = "/index.php?url=connexion";
+    window.location.href = "/connexion";
 }
 
 function openRegPage() {
-    window.location.href = "/index.php?url=inscription"
+    window.location.href = "/inscription"
 }
 
 function openMdp() {
-    window.location.href = "/index.php?url=Reinisialisation_mdp"
+    window.location.href = "/Reinisialisation_mdp"
 }
 
 let input = document.getElementById('avatar');
@@ -25,13 +25,13 @@ function updateImageDisplay() {
 }
 
 function versConnexion() {
-    window.location.href = '/index.php?url=connexion'
+    window.location.href = '/connexion'
 }
 
 function versCreation() {
-    window.location.href = '/index.php?url=recette'
+    window.location.href = '/recette'
 }
 
 function versAdmin() {
-    window.location.href = 'index.php?url=Admin/checkAdmin'
+    window.location.href = '/Admin/checkAdmin'
 }

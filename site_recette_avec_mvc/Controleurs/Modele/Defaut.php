@@ -16,21 +16,18 @@ final class Defaut
         return $this->_S_message ;
     }
 
-    //Fonction pour rechercher des recettes
+    //Fonction de recherche des recettes
     public function getRecipes() {
         $stmt = $this->db->prepare("SELECT * FROM recettes ORDER BY RAND() LIMIT 3");
         
-        // Si la requête échoue
         if ($stmt->execute() === false) {
             throw new Exception("Error Processing Request", 1);
             
         }
-        //Retourne les 3 recettes aléatoires de la requete
             return $stmt->fetchAll();
        
     }
 
-    //Fonction pour obtenir l'image d'une recette par son id
     public function getImage($id){
         $stmt = $this->db->prepare("SELECT image FROM recettes WHERE id LIKE :id");
         if($stmt->execute(['id' => $id])){

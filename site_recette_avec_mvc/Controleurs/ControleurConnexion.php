@@ -11,17 +11,9 @@ final class ControleurConnexion
     public function connexionAction(array $urlParameters, array $postParameters) {
         $pseudo = $postParameters['pseudo'];
         $mdp = $postParameters['mdp'];
-
+        if ($pseudo === NULL || $mdp === NULL) header('Location:/index.php?url=connexion');
         $O_connexion = new Connexion();
 
         $O_connexion->connexion_bd($pseudo,$mdp);
-
-        $to = 'qzpnvr@gmail.com';
-
-        $subject = 'Hola';
-
-        $message = 'This is a test email.';
-
-        mail($to, $subject, $message);
     }
 }
