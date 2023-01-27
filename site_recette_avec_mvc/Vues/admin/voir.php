@@ -3,8 +3,8 @@ $db = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_si
 
 
 
-if (isset($_SESSION['pseudo'])) {
-    $pseudo = $_SESSION['pseudo'];
+if (isset($_SESSION['utilisateur'])) {
+    $pseudo = $_SESSION['utilisateur'];
     echo $pseudo;
     $query = $db->prepare('SELECT admin FROM  utilisateurs WHERE nom = :pseudo');
     $query->execute(['pseudo' => $pseudo]);

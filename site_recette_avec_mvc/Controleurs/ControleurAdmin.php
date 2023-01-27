@@ -15,8 +15,8 @@ final class ControleurAdmin
     {
         $this->model = new Admin();
     
-        if (isset($_SESSION['pseudo'])) {
-            $pseudo = $_SESSION['pseudo'];
+        if (isset($_SESSION['utilisateur'])) {
+            $pseudo = $_SESSION['utilisateur'];
             $isAdmin = $this->model->checkAdmin($pseudo);
             if ($isAdmin == 1) {
                 $_SESSION['userAdmin'] = true;

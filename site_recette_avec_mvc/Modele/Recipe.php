@@ -8,7 +8,17 @@ final class recipe {
         while(!$req->execute(array($pseudo, $id_recette, $note, $titre, $commentaire))) {
             $req->execute(array($pseudo, $id_recette, $note, $titre, $commentaire));
         }
-        header('Location:/recipe');
+        header('Location:/recipe/getassets?='.$id_recette);
+        exit;
+    }
+
+    public function supprime_comm($id_comm, $id_recette) {
+        $bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
+        $req = $bdd->prepare('DELETE FROM appreciations WHERE `appreciations`.`id` = ?');
+        while(!$req->execute(array($id_comm))) {
+            $req->execute(array($id_comm));
+        }
+        header('Location:/recipe/getassets?='.$id_recette);
         exit;
     }
 
@@ -21,7 +31,7 @@ final class recipe {
     
     public function getCommentairesByRecetteId($id_recette) {
         $bdd = new PDO('mysql:host=mysql-thesavorist.alwaysdata.net;dbname=thesavorist_site', '295285', '*OnadesnotesIncr13*');
-        $req = $bdd->prepare('SELECT auteur,note,titre,commentaire,CAST(created_at AS date) as date,photo FROM appreciations,utilisateurs WHERE id_recette = :id_recette AND auteur=nom ORDER BY created_at DESC');
+        $req = $bdd->prepare('SELECT auteur,note,titre,commentaire,CAST(created_at AS date) as date,photo,appreciations.id as id_comm FROM appreciations,utilisateurs WHERE id_recette = :id_recette AND auteur=nom ORDER BY created_at DESC');
         $req->execute(array(':id_recette' => $id_recette));
         return $req->fetchAll();
     }

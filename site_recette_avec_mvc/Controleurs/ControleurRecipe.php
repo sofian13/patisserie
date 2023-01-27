@@ -10,18 +10,19 @@ final class ControleurRecipe
 
     public function ajoute_commAction(array $urlParameters, array $postParameters)
     {
-        $pseudo = $_SESSION['utilisateur'];
-        $titre = $postParameters['comment-title'];
-        $commentaire = $postParameters['comment'];
         if (isset($postParameters['rating'])) {
             $note = $postParameters['rating'];
         } else {
             $note = 5;
         }
-        $id_recette = $postParameters['id_recette'];
-        echo $id_recette;
         $O_bdd = new recipe();
-        $O_bdd->ajoute_comm($pseudo, $titre, $commentaire, $note, $id_recette);
+        $O_bdd->ajoute_comm($_SESSION['utilisateur'], $postParameters['comment-title'], $postParameters['comment'], $note, $postParameters['id_recette']);
+    }
+
+    public function supprime_commAction(array $urlParameters, array $postParameters)
+    {
+        $O_bdd = new recipe();
+        $O_bdd->supprime_comm($postParameters['id_comm'], $_SESSION["id_recette"]);
     }
 
     public function getassetsAction()

@@ -11,12 +11,10 @@ final class Connexion
         while(!$req->execute(array($pseudo))) {
             $req->execute(array($pseudo));
         }
-        $_SESSION['pseudo'] = $pseudo;
         $_SESSION['userAdmin'] = false;
         $utilisateur = $req ->fetch();
 
         if ($utilisateur && password_verify($mdp, $utilisateur["password"])) {
-            session_start();
             $_SESSION['utilisateur'] = $pseudo;
             $_SESSION['utilisateur_pp'] = $utilisateur["photo"];
             header('Location:/index.php');

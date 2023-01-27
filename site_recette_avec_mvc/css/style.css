@@ -200,6 +200,11 @@ footer #contact {
     color: #565656;
 }
 
+.supprimer-submit{
+    float: right;
+    margin-right: 20px;
+}
+
 .star {
     margin-top: -10px;
     margin-bottom: -10px;
@@ -231,7 +236,7 @@ footer #contact {
     line-height: 140%;
 }
 
-.comm .column p:last-child {
+.comm-text {
     padding-top: 10px;
     line-height: 100%;
     padding-left: 3px;

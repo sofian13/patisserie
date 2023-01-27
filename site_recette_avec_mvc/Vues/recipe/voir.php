@@ -70,7 +70,16 @@
                                         echo '★';
                                     }
                                     echo ' ' . $row['titre']; ?></p>
-                                    <p><?php echo str_replace("\n", "<br>", $row['commentaire']); ?></p>
+                                    <p class="comm-text"><?php echo str_replace("\n", "<br>", $row['commentaire']); ?></p>
+                                    <?php
+                                    if (isset($_SESSION['userAdmin']) and $_SESSION['userAdmin'] == true){
+                                        ?>
+                                        <form action="/recipe/supprime_comm" method="post">
+                                            <button class="supprimer-submit" name="id_comm" value="<?php echo $row['id_comm']?>">Supprimer</button>
+                                        </form>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </li>
@@ -78,40 +87,49 @@
                     }
                     ?>
                 </ul>
-                <div class="comment-session">
-                    <div class="comment-box">
-                        <form action="/recipe/ajoute_comm" method="post">
-                            <div class="row">
-                                <div class="user">
-                                    <div class="image">
-                                        <img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['utilisateur_pp'])?>">
-                                    </div>
-                                    <div class="column">
-                                        <div class="name"><?php echo $_SESSION['utilisateur']?></div>
-                                        <div class="rating-css">
-                                            <div class="star-icon">
-                                                <input type="radio" name="rating" value="1" id="rating1">
-                                                <label for="rating1" class="fa fa-star"></label>
-                                                <input type="radio" name="rating" value="2" id="rating2">
-                                                <label for="rating2" class="fa fa-star"></label>
-                                                <input type="radio" name="rating" value="3" id="rating3">
-                                                <label for="rating3" class="fa fa-star"></label>
-                                                <input type="radio" name="rating" value="4" id="rating4">
-                                                <label for="rating4" class="fa fa-star"></label>
-                                                <input type="radio" name="rating" value="5" id="rating5">
-                                                <label for="rating5" class="fa fa-star"></label>
+                <?php
+                if (isset($_SESSION["utilisateur"])){
+                    ?>
+                    <div class="comment-session">
+                        <div class="comment-box">
+                            <form action="/recipe/ajoute_comm" method="post">
+                                <div class="row">
+                                    <div class="user">
+                                        <div class="image">
+                                            <img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['utilisateur_pp'])?>">
+                                        </div>
+                                        <div class="column">
+                                            <div class="name"><?php echo $_SESSION['utilisateur']?></div>
+                                            <div class="rating-css">
+                                                <div class="star-icon">
+                                                    <input type="radio" name="rating" value="1" id="rating1">
+                                                    <label for="rating1" class="fa fa-star"></label>
+                                                    <input type="radio" name="rating" value="2" id="rating2">
+                                                    <label for="rating2" class="fa fa-star"></label>
+                                                    <input type="radio" name="rating" value="3" id="rating3">
+                                                    <label for="rating3" class="fa fa-star"></label>
+                                                    <input type="radio" name="rating" value="4" id="rating4">
+                                                    <label for="rating4" class="fa fa-star"></label>
+                                                    <input type="radio" name="rating" value="5" id="rating5">
+                                                    <label for="rating5" class="fa fa-star"></label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <textarea class="comment-title" name="comment-title" placeholder="Titre"></textarea>
-                            <textarea class="comment" name="comment" placeholder="Commentaire"></textarea>
-                            <input type="number" name="id_recette" value="<?php echo $_SESSION["id_recette"]?>" hidden>
-                            <button class="comment-submit">Commenter</button>
-                        </form>
+                                <textarea class="comment-title" name="comment-title" placeholder="Titre"></textarea>
+                                <textarea class="comment" name="comment" placeholder="Commentaire"></textarea>
+                                <input type="number" name="id_recette" value="<?php echo $_SESSION["id_recette"]?>" hidden>
+                                <button class="comment-submit">Commenter</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                    <?php
+                }
+                else{
+                    echo "Vous devez être connecter pour pouvoir envoyer un commentaire";
+                }
+                ?>
             </div>
         </div>
     </div>
