@@ -166,7 +166,13 @@ footer #contact {
     display: none;
 }
 
-#url {
+#url1 {
+    display: none;
+}
+#url2 {
+    display: none;
+}
+#url3 {
     display: none;
 }
 

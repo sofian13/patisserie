@@ -1,6 +1,6 @@
 <footer>
 
-    <h1>Nos services</h1>
+    <h2>Nos services</h2>
     <div class="services">
 
         <div class="service">
@@ -9,6 +9,7 @@
         </div>
 
         <p id="contact">Contact : 07 71 15 37 09 | &copy; 2021, New York.</p>
+</div>
 </footer>
 <script src="/js/script.js"></script>
 <script src="/js/script2.js"></script>
