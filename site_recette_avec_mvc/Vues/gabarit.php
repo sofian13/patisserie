@@ -3,10 +3,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Recette</title>
-    </head>
-    <body>
+   
         <?php Vue::montrer('standard/entete'); ?>
+    <body>
         <?php echo $A_vue['body'] ?>
-        <?php Vue::montrer('standard/pied'); ?>
     </body>
+        <?php Vue::montrer('standard/pied'); ?>
+    
 </html>
