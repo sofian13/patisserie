@@ -21,8 +21,10 @@ final class ControleurRecipe
 
     public function supprime_commAction(array $urlParameters, array $postParameters)
     {
-        $O_bdd = new recipe();
-        $O_bdd->supprime_comm($postParameters['id_comm'], $_SESSION["id_recette"]);
+        if (isset($_SESSION['userAdmin']) and $_SESSION['userAdmin'] == true){
+            $O_bdd = new recipe();
+            $O_bdd->supprime_comm($postParameters['id_comm'], $_SESSION["id_recette"]);
+        }
     }
 
     public function getassetsAction()

@@ -27,7 +27,9 @@
                     <hr class="bg-primary w-full h-1">
                 </div>
                 <ul class="grid grid-cols-4 gap-8 w-4/5 mx-auto">
-                    <?php echo $_SESSION["recipe"]['liste_ingredients']?>
+                    <li>
+                        <?php echo str_replace("\n", "</li><li>", $_SESSION["recipe"]['liste_ingredients'])?>
+                    </li>
                 </ul>
             </div>
 
@@ -39,7 +41,7 @@
                 </div>
 
                 <ul class="flex flex-col gap-8 my-8">
-                    <?php echo $_SESSION["recipe"]['instructions']?>
+                    <?php echo str_replace("\n", "<br>", $_SESSION["recipe"]['instructions'])?>
                 </ul>
             </div>
             <!-- Commentaires -->
