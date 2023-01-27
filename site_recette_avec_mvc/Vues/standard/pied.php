@@ -1,6 +1,6 @@
 <footer>
 
-    <h1>Nos services</h1>
+    <h2>Nos services</h2>
     <div class="services">
 
         <div class="service">
